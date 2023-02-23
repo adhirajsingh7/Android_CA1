@@ -1,0 +1,31 @@
+package com.example.androidca1
+
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+
+class MainActivity : AppCompatActivity() {
+    var textView: TextView? = null
+    var count = 0
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+
+        setSupportActionBar(toolbar)
+
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setLogo(R.drawable.ic_baseline_add_circle_outline_24)
+        supportActionBar!!.setDisplayUseLogoEnabled(true)
+        
+        textView = findViewById<View>(R.id.textView2) as TextView
+        
+        textView!!.setOnClickListener {
+            count++
+            textView!!.text = "" + count
+        }
+    }
+}
